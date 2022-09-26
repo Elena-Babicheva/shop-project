@@ -304,7 +304,7 @@ body {
   right: 5px;
   top: 50px;
 }
-.like:hover {
+.like-hover {
   background: #2c71b8 url("./img/white-like.png") no-repeat center;
 }
 .expand:hover {
