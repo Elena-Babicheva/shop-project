@@ -1,4 +1,3 @@
-
 /* Счетчик продуктов в header при нажатии на кнопку add-btn (купить)
  увеличивает значение в блоке с корзиной.
 
@@ -21,9 +20,9 @@ console.log(addToCartBtns); //ищем все кнопки по классу .ad
 //перебираем масив по элементам и присваиваем нов.значение тексту блока счетчик по нажатии
 addToCartBtns.forEach((item) => {
   item.addEventListener("click", function () {
-    productsCount.textContent=+productsCount.textContent+1
+    productsCount.textContent = +productsCount.textContent + 1;
   });
-}); 
+});
 
 /* Кнопка лайк при нажатии на кнопку ее стиль меняется при 
 повторном нажатии возвращается в первоначальное состояние.
@@ -39,7 +38,61 @@ let likeBtn = document.querySelectorAll(".like");
 console.log(likeBtn); //ищем все like
 
 likeBtn.forEach((elem) => {
-  elem.addEventListener("click", function() {
+  elem.addEventListener("click", function () {
     this.classList.toggle("like-hover");
-   });
   });
+});
+
+/* модальное окно при нажатии на кнопки .add-btn*/
+let modal = document.querySelector(".modal");
+console.log(modal);
+let moreDetailsBtns = document.querySelectorAll(".details-btn");
+console.log(moreDetailsBtns);
+
+let closeBtn = document.querySelector(".btn-close");
+function openModal() {
+  modal.classList.add("show");
+  modal.classList.remove("hide");
+}
+
+function closeModal() {
+  modal.classList.add("hide");
+  modal.classList.remove("show");
+}
+moreDetailsBtns.forEach((item) => {
+  item.addEventListener("click", openModal);
+});
+
+closeBtn.addEventListener("click", closeModal);
+
+modal.addEventListener("click", function (e) {
+  //e.preventDefault;
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+//Модальное окно на 50% экрана
+
+let scrollHeight = document.documentElement.clientHeight;
+let skroll = window.pageYOffset;
+// console.log(skroll, scrollHeight);
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > scrollHeight / 2 ||
+    document.documentElement.scrollTop > scrollHeight / 2
+  ) {
+    modal.classList.add("show");
+    modal.classList.remove("hide");
+  }
+}
+
+// slider
+$(".slider").slick({
+  dots: true,
+  // autoplay: true,
+});
