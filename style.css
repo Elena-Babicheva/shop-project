@@ -207,10 +207,7 @@ body {
 /* слайдер */
 .hero {
   background-color: rgba(0, 0, 0, 0.2);
-  margin-left: -2px;
-  margin-right: -2px;
 }
-
 .slider > div {
   font-size: 100px;
   text-align: center;
@@ -239,9 +236,9 @@ body {
   height: 100%;
   display: block;
 }
-.slick-prev {
-  left: 0;
-}
+  /* .slick-prev {
+  left: auto;
+} */
 .slick-next {
   right: 35px;
 }
@@ -261,7 +258,7 @@ body {
 .slick-next:before {
   content: ">";
   color: white;
-}
+} 
 /* хлебные крошки */
 .address-bar {
   color: rgba(255, 255, 255, 0.5);
